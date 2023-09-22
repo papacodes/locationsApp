@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    NavigationPage.HasNavigationBar="false"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+    xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    x:Class="locationsApp.Views.LoginPage">
+    
+    <Grid BackgroundColor="#333433">
+
+        <ScrollView     
+            Grid.Row="0" 
+            Grid.Column="0"  
+            HorizontalOptions="FillAndExpand" 
+            VerticalOptions="EndAndExpand" 
+            Orientation="Vertical" >
+
+            <Frame>
+                    
+                
+                <StackLayout>
+                    <yummy:PancakeView IsVisible="{Binding isBusy}" Grid.Column="0" BackgroundColor="Transparent" CornerRadius="30,30,30,30" HorizontalOptions="FillAndExpand" HeightRequest="150">
+                        <forms:AnimationView
+                            x:Name="animationView"
+                            Animation="loader.json"
+                            AnimationSource="AssetOrBundle"
+                            VerticalOptions="FillAndExpand"
+                            HorizontalOptions="FillAndExpand"
+                            RepeatMode="Infinite"/>
+                    </yummy:PancakeView>
+                    <Label
+                        Text="Welcome to the locations app."
+                        Style="{StaticResource HeadingBlack}"/>
+                    <Label 
+                        Text="{Binding ErrorMessage}"
+                        Style="{StaticResource ErrorMessage}"/>
+
+                    <StackLayout />
+                    <!--spacing-->
+
+                    <Frame
+                        Style="{StaticResource FrameEntry}"
+                        BorderColor="{Binding Color}">
+                        <Entry
+                            x:Name="ClientIdEntry"
+                            Placeholder="Client Id"
+                            Text="{Binding LoginRequest.client_id}"
+                            Style="{StaticResource TextEntry}" />
+                    </Frame>
+
+                    <StackLayout />
+                    <!--spacing-->
+
+                    <Frame
+                        Style="{StaticResource FrameEntry}"
+                        BorderColor="{Binding Color}">
+                        <Entry
+                            x:Name="ClientSecretEntry"
+                            Placeholder="Client Secret"
+                            Text="{Binding LoginRequest.client_secret}"
+                            Style="{StaticResource TextEntry}" />
+                    </Frame>
+
+                    <Button
+                        Text="Sign In"
+                        Style="{StaticResource PrimaryActionBtn}"
+                        Command="{Binding LoginCommand}"/>
+
+                </StackLayout>
+
+            </Frame>
+
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="false"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+    x:Class="locationsApp.Views.LocationPage">
+<Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <CarouselView
+            BackgroundColor="#333433"
+            Grid.Column="0"
+            Grid.Row="0">
+           
+
+        </CarouselView>
+
+        <ScrollView
+            Grid.Column="0"
+            Grid.Row="0">
+
+            <Frame
+                Margin="0,85,0,0">
+
+                <StackLayout>
+                     <Label
+                        Text="Location Details" FontFamily="LatoBold" FontSize="16" Style="{StaticResource HeadingBlack}"  Padding="15,0,0,0" HorizontalOptions="Start" VerticalOptions="Start"/>
+                     <Label
+                        Text="{Binding locationResponse.name}" Style="{StaticResource HeadingBlack}" VerticalOptions="Start" HorizontalOptions="Start" Padding="25" FontFamily="Montserrat" FontSize="65" />
+
+                    <Label
+                        Text="{Binding locationResponse.formattedAddress}" FontFamily="LatoBold" FontSize="Large" Style="{StaticResource HeadingBlack}"  Padding="15,0,0,0" HorizontalOptions="Start" VerticalOptions="Start"/>
+
+                    <Label
+                        Text="{Binding locationResponse.vicinity}" FontFamily="LatoBold" FontSize="Medium" Style="{StaticResource HeadingBlack}"  Padding="15,0,0,0" HorizontalOptions="Start" VerticalOptions="Start"/>
+
+                    <Label
+                        Text="{Binding locationResponse.longitude, StringFormat='Longitude {0}'}" FontFamily="LatoBold" FontSize="14" Style="{StaticResource HeadingBlack}"  Padding="15,0,0,0" HorizontalOptions="Start" VerticalOptions="Start"/>
+
+                    <Label
+                        Text="{Binding locationResponse.latitude, StringFormat='Latitude {0}'}" Style="{StaticResource HeadingBlack}" VerticalOptions="Start" HorizontalOptions="Start" Padding="15,0,0,0" FontFamily="Montserrat" FontSize="14" />
+
+                    <Label
+                        Text="{Binding locationRepsonse.utcOffset, StringFormat='UTC Offset {0}'}" FontFamily="LatoBold" FontSize="14" Style="{StaticResource HeadingBlack}"  Padding="15,0,0,0" HorizontalOptions="Start" VerticalOptions="Start"/>
+
+                    <Label
+                        Text="{Binding locationResponse.url}" Style="{StaticResource HeadingBlack}" VerticalOptions="Start" HorizontalOptions="Start" Padding="0,0,0,15" FontFamily="Montserrat" FontSize="12" />
+
+                    <Label
+                        Text="Images" Style="{StaticResource HeadingBlack}" VerticalOptions="Start" HorizontalOptions="Start" Padding="15,0,0,0" FontFamily="Montserrat" FontSize="Large" />
+                    
+              
+
+                </StackLayout>
+
+            </Frame>
+                        
+        </ScrollView>
+        
+    <Button
+        Margin="35"
+        Grid.Row="0"
+        VerticalOptions="End"
+        Text="Back"
+        Style="{StaticResource ContrastingButton}"/>
+                               
+
+    </Grid>
+</ContentPage>
+
